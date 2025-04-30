@@ -360,13 +360,10 @@ def convertToClassicalModel(cobra_model2,comp="*",updateCharges=""):
 def convertToFractionalChargesFruit(uncharged,infile="MetaboliteChargedStates.xlsx",compH={"v1":5.5}):
     model = uncharged.copy()
 
-    #from xlrd import open_workbook
-    import openpyxl
-    wb = openpyxl.load_workbook(infile)  
-    sheet = wb.active
+    from xlrd import open_workbook
     from cobra.core import Metabolite
 
-    #wb = open_workbook(infile)
+    wb = open_workbook(infile)
 
     FractionDict = dict()
     FractionCharge = dict()
@@ -488,7 +485,6 @@ def convertToFractionalChargesFruit(uncharged,infile="MetaboliteChargedStates.xl
         #if rxn.id.__contains__("MAL_v_Transfer"):
         #    print(rxn.reaction)
     return model
-
 #Estimate cell volume based on Beauvoit et al
 def estimateVcell(T):
     import math
