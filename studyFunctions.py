@@ -1,12 +1,4 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "570aa3e9-9fba-47c1-9514-eee113f7ab05",
-   "metadata": {},
-   "outputs": [],
-   "source": [
+
     "#Estimate cell volume based on Beauvoit et al\n",
     "def estimateVcell(T):\n",
     "    import math\n",
