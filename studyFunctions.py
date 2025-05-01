@@ -109,3 +109,16 @@ def estimateProteinDemandFlux(T,Ncell=0,ProtConc=21458.1747597,unit_time=1,hollo
         Ncell = estimateNcell(T,hollow)
     z = estimateProteinContent(T,Ncell,ProtConc=21458.1747597) - estimateProteinContent(T-unit_time,Ncell,ProtConc=21458.1747597)	# unit = mmol/fruit/unit_time
     return z
+
+#Estimate fruit C content
+def estimateCcontent(T,hollow=False):
+    y = (0.03617391*(estimateVpericarp(T,hollow)/estimateVpericarp(59,hollow))*100)+0.18173913
+    return y
+
+#Estimate phloem uptake rate
+def estimatePhloemUptakeConstraint(Ccont):
+    a=1.21863077
+    b=6.70786808
+    c=0.43646842
+    y = a+b/(Ccont+c)
+    return y			# mgC/fruit/hr
